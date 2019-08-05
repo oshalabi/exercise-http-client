@@ -4,8 +4,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
-import nl.han.ica.oose.dea.services.AlbumService;
-import nl.han.ica.oose.dea.services.CommentsService;
+import nl.han.ica.oose.dea.services.RequestService;
 
 import java.util.Scanner;
 
@@ -24,8 +23,7 @@ public class HttpClient {
     private void start() {
         var keyboard = new Scanner(System.in);
 
-        var almbumService = new AlbumService();
-        var commentsService = new CommentsService();
+        var requestService = new RequestService();
 
         boolean exit = false;
         while (!exit) {
@@ -37,7 +35,7 @@ public class HttpClient {
                     System.out.println("> Exit programm");
                     exit = true;
                 } else if ("1".equals(input)) {
-                    System.out.println(createPrettyString(commentsService.getAllComments()));
+                    System.out.println(requestService.getReadme());
                 }
             }
         }
@@ -50,9 +48,9 @@ public class HttpClient {
         System.out.println("------------------------------------------------");
         System.out.println("| Please select which request to send: ");
         System.out.println("|");
-        System.out.println("| * Press 1 for a GET to /comments");
-        System.out.println("| * Press 1 for a POST to /comments");
-        System.out.println("| * Press 1 for a DELETE to /comments");
+        System.out.println("| * Press 1 for a GET to the Readme of this exercise");
+        System.out.println("| * Press 2 for a GET to logo image file at www.han.nl");
+        System.out.println("| * Press 3 for a DELETE to /comments");
         System.out.println("|");
         System.out.println("| * Press quit to exit");
         System.out.print("> ");
