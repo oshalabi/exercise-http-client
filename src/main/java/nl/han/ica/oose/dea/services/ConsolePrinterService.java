@@ -15,22 +15,20 @@ public class ConsolePrinterService {
 
     public void printLogo() {
 
-        ClassLoader classLoader = getClass().getClassLoader();
-
-        var file = new File(classLoader.getResource(HTTP_LOGO).getFile());
+        var file = new File(getClass().getClassLoader().getResource(HTTP_LOGO).getFile());
 
         InputStreamReader reader = null;
-        try {
-            reader = new InputStreamReader(
-                    new FileInputStream(file), "UTF-8");
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-        } catch (FileNotFoundException e) {
+
+        try (var stream = new FileInputStream(file)) {
+            reader = new InputStreamReader(stream, "UTF-8");
+        } catch (IOException e) {
             e.printStackTrace();
         }
+
         var fin = new BufferedReader(reader);
 
         String s = null;
+
         while (true) {
             try {
                 if (!((s = fin.readLine()) != null)) break;
