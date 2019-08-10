@@ -24,7 +24,7 @@ Implementeer de methode `getIndexHtml()`:
 * Maak een GET request naar *github.com*
 * Retourneer de *body* van de *response*
 
-Test je implemetatie op de volgende twee manieren:
+Test je implementatie op de volgende twee manieren:
 * Voer de betreffende test uit `GithubServiceTest` uit 
 * Start de applicatie op en selecteer het juiste menu-item
 
@@ -34,7 +34,7 @@ Implementeer de methode `getReadme()`:
 die correcte url is. Merk op dat je een request wilt naar de *raw* versie. 
 * Retourneer de *body* van de *response*
 
-Test je implemetatie op de volgende twee manieren:
+Test je implementatie op de volgende twee manieren:
 * Voer de betreffende test uit `GithubServiceTest` uit 
 * Start de applicatie op en selecteer het juiste menu-item
 
@@ -54,6 +54,9 @@ Implementeer de methode `getTodos()`:
 * Deze methode is `void` en hoeft dus niks te retourneren
 * Gebruik de `thenAccept()` om de `body` van de `response` te printen naar `system.out`
 
+Test je implementatie op de volgende twee manieren:
+* Start de applicatie op en selecteer het juiste menu-item
+
 ### 2.2: Het gebruik van een *Lambda*-expressie voor het doen van een Callback
 Implementeer de methode `getTodosWithCallback`. We halen dus dezelfde data op als in de voorgaande oefening, 
 maar nu gebruiken we een callback om de `ConsolePrinterService` de `body` van de `response` naar `system.out`
@@ -66,7 +69,28 @@ een *lambda*-expressie zijn die in de `thenAccept()` wordt uitgevoerd.
 * Refactor je applicatie waar nodig. Mogelijk heb je *magic-strings* of *duplicate-code* die een 
 refactorslag verdienen.
 
+Test je implementatie op de volgende twee manieren:
+* Start de applicatie op en selecteer het juiste menu-item
+
 ### 2.3: Het verzenden van een POST-Request op basis van de opgehaalde [JSON](https://www.json.org/)
+Implementeer de methode `createNewTodoItemOnServer()`. Deze methode zal eerst een GET versturen, waarna een POST moet 
+volgen. Beide zullen asynchroon zijn, zodat er veel werk verzet moet gaan worden in de `thenAccept` van de 
+requests. Hiermee wordt ook de Lambda-expressie die als Callback gebruikt wordt vanuit het eerste request (de GET) doorgegeven aan het
+tweede request (de POST). Pas in de `thenAccept` van het tweede request moet de callback worden aangeroepen.
+
+* Maak een **asynchrone** GET naar de url *https://jsonplaceholder.typicode.com/todos*
+* Gebruik de `thenAccept` om de [JSON](https://www.json.org/) via de aangeleverde `TodoMapper` om te zetten
+naar een `TodoDto[]`.
+* Bepaal hoe lang deze array is en bepaal op basis hiervan wat het `id` moet worden van het nieuw te maken `TodoItem`. Gebruik
+de aangeleverde methode `createNewTodoItem()` om hiermee een nieuw `TodoItem` te maken.
+* Maak een **asynchrone** POST naar de url *https://jsonplaceholder.typicode.com/todos* met het nieuwe `TodoItem` in de `body`.
+Merk hierbij op dat de body van een request een `String` moet zijn. Je zult het Java-Object dan ook eerst moet serializeren naar
+[JSON](https://www.json.org/). Gebruik hiervoor weer de `TodoMapper`.
+* Zet ook de ACCEPT-header van het request op de juiste waarde. 
+* Roep nu vanuit de `.theAccept` van de POST de Callback aan die als paramter was meegegeven aan `createNewTodoItemOnServer()`.
+
+Test je implementatie op de volgende twee manieren:
+* Start de applicatie op en selecteer het juiste menu-item
 
 ## De GitHubService
 

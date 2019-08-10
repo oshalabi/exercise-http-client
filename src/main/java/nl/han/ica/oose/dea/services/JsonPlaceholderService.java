@@ -11,7 +11,7 @@ import java.util.function.Consumer;
 
 public class JsonPlaceholderService {
 
-    public static final String URL_TODOS = "https://jsonplaceholder.typicode.com/todos";
+    private static final String URL_TODOS = "https://jsonplaceholder.typicode.com/todos";
 
     private HttpClient client;
     private TodoMapper todoMapper;
@@ -78,7 +78,7 @@ public class JsonPlaceholderService {
         var todo = new TodoDto();
         todo.setId(id);
         todo.setCompleted(false);
-        todo.setTitle("Finish Dea Exercise");
+        todo.setTitle("Finish the DEA Exercise");
         todo.setUserId(2);
         return todo;
     }
