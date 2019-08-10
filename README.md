@@ -10,10 +10,7 @@ Voor deze oefening is al een gedeeltelijke applicatie gemaakt. Namelijk een zeer
 wordt een console-applicatie opgestart waarbinnen het mogelijk is Http-Requests uit te
 voeren en die de body van de Http-Response in de console afdrukt. Er is een keuzemenu van
 uit te voeren requests, waarbij het de oefening is om met behulp van de Http-Client API deze
-requests ook daadwerkelijk uit te voeren. Hierbij maken we kennis met
-* Uitvoeren van verschillende Http-methodes
-* Content-negotiation
-* Synchroon en Asynchroon uitvoeren van requests
+requests ook daadwerkelijk uit te voeren. 
 
 ## 1: De GitHubService
 De `GitHubService` is verantwoordelijk voor alle requests naar *https://github.com*. De requests zullen
