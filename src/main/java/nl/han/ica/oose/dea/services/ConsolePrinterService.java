@@ -21,21 +21,16 @@ public class ConsolePrinterService {
 
         try (var stream = new FileInputStream(file)) {
             reader = new InputStreamReader(stream, "UTF-8");
+            var fin = new BufferedReader(reader);
+            String s = null;
+
+            while (true) {
+                if (!((s = fin.readLine()) != null)) break;
+                System.out.println(s);
+            }
+
         } catch (IOException e) {
             e.printStackTrace();
-        }
-
-        var fin = new BufferedReader(reader);
-
-        String s = null;
-
-        while (true) {
-            try {
-                if (!((s = fin.readLine()) != null)) break;
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            System.out.println(s);
         }
     }
 
@@ -50,6 +45,7 @@ public class ConsolePrinterService {
         printOutputLine("* Press 3 for a asynchronous GET to https://jsonplaceholder.typicode.com/todos");
         printOutputLine("* Press 4 for a asynchronous GET to https://jsonplaceholder.typicode.com/todos with a callback v1");
         printOutputLine("* Press 5 for a asynchronous GET to https://jsonplaceholder.typicode.com/todos with a callback v2");
+        printOutputLine("* Press 6 for creating a new Todo item at https://jsonplaceholder.typicode.com/todos");
 
         printOutputLine("* Press q to exit");
         printInputLine();

@@ -7,14 +7,14 @@ import nl.han.ica.oose.dea.services.JsonPlaceholderService;
 import java.util.Scanner;
 
 
-public class ConsoleBrowserThingy {
+public class DeaConsoleBrowser {
 
     private GitHubService gitHubService;
     private JsonPlaceholderService jsonPlaceholderService;
     private ConsolePrinterService consolePrinterService;
 
     public static void main(String[] args) {
-        var consoleBrowser = new ConsoleBrowserThingy();
+        var consoleBrowser = new DeaConsoleBrowser();
         consoleBrowser.setGitHubService(new GitHubService());
         consoleBrowser.setJsonPlaceholderService(new JsonPlaceholderService());
         consoleBrowser.setConsolePrinterService(new ConsolePrinterService());
@@ -55,8 +55,13 @@ public class ConsoleBrowserThingy {
                         consolePrinterService.printResponse(response);
                         consolePrinterService.printSelectionScreen();
                     });
-
+                } else if ("6".equals(input)) {
+                    jsonPlaceholderService.createNewTodoItemOnServer(response -> {
+                        consolePrinterService.printResponse(response);
+                        consolePrinterService.printSelectionScreen();
+                    });
                 }
+
             }
         }
         keyboard.close();
