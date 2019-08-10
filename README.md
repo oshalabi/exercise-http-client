@@ -85,14 +85,13 @@ naar een `TodoDto[]`.
 de aangeleverde methode `createNewTodoItem()` om hiermee een nieuw `TodoItem` te maken.
 * Maak een **asynchrone** POST naar de url *https://jsonplaceholder.typicode.com/todos* met het nieuwe `TodoItem` in de `body`.
 Merk hierbij op dat de body van een request een `String` moet zijn. Je zult het Java-Object dan ook eerst moet serializeren naar
-[JSON](https://www.json.org/). Gebruik hiervoor weer de `TodoMapper`.
-* Zet ook de ACCEPT-header van het request op de juiste waarde. 
+[JSON](https://www.json.org/). Gebruik hiervoor weer de `TodoMapper`. Merk overigens op dat dit request er normaal
+gesproken voor zorgen dat de nieuwe `TodoItem` ook op de server wordt toegevoegd en je deze dus ook weer via een GET kunt ophalen.
+De server is echter een gratis test-server en zal dus enkel in zijn response de indruk wekken ook het nieuwe `TodoItem` te hebben 
+toegevoegd.
+* Zet ook de Content-Type in de Request-header op de juiste waarde. Voor meer informatie, bekijk de [RFC](https://tools.ietf.org/html/rfc7230)
+van Http.
 * Roep nu vanuit de `.theAccept` van de POST de Callback aan die als paramter was meegegeven aan `createNewTodoItemOnServer()`.
 
 Test je implementatie op de volgende twee manieren:
 * Start de applicatie op en selecteer het juiste menu-item
-
-## De GitHubService
-
-
-
