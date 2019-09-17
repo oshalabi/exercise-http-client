@@ -14,6 +14,7 @@ class GithubServiceTest {
     @BeforeEach
     void setup() {
         this.githubService = new GitHubService();
+
     }
 
     @Test
