@@ -88,7 +88,7 @@ De server is echter een gratis test-server en zal dus enkel in zijn response de 
 toegevoegd.
 * Zet ook de Content-Type in de Request-header op de juiste waarde. Voor meer informatie, bekijk de [RFC](https://tools.ietf.org/html/rfc7230)
 van Http.
-* Roep nu vanuit de `.theAccept` van de POST de Callback aan die als paramter was meegegeven aan `createNewTodoItemOnServer()`.
+* Roep nu vanuit de `.theAccept` van de POST de Callback aan die als parameter was meegegeven aan `createNewTodoItemOnServer()`.
 
-Test je implementatie op de volgende twee manieren:
+Test je implementatie op de volgende manier:
 * Start de applicatie op en selecteer het juiste menu-item
