@@ -1,7 +1,7 @@
 <!--- 37 --->
 # Introductie
 Deze oefening is deel van de DEA Course aan de Hogeschool Arnhem/Nijmegen. 
-Onderwerp is ervaring opdoen met de cient-kant van HTTP-verkeer. Concreet zullen we ingaan
+Onderwerp is ervaring opdoen met de client-kant van HTTP-verkeer. Concreet zullen we ingaan
 op de HTTP-Client uit de Java JDK en Asynchroon programmeren.
 
 # Oefening
@@ -51,7 +51,7 @@ Implementeer de methode `getTodos()`:
 * Deze methode is `void` en hoeft dus niks te retourneren
 * Gebruik de `thenAccept()` om de `body` van de `response` te printen naar `system.out`
 
-Test je implementatie op de volgende twee manieren:
+Test je implementatie op de volgende manier:
 * Start de applicatie op en selecteer het juiste menu-item
 
 ### 2.2: Het gebruik van een *Lambda*-expressie voor het doen van een Callback
@@ -66,7 +66,7 @@ een *lambda*-expressie zijn die in de `thenAccept()` wordt uitgevoerd.
 * Refactor je applicatie waar nodig. Mogelijk heb je *magic-strings* of *duplicate-code* die een 
 refactorslag verdienen.
 
-Test je implementatie op de volgende twee manieren:
+Test je implementatie op de volgende manier:
 * Start de applicatie op en selecteer het juiste menu-item
 
 ### 2.3: Het verzenden van een POST-Request op basis van de opgehaalde [JSON](https://www.json.org/)
