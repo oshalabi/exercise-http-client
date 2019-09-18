@@ -28,7 +28,7 @@ Test je implementatie op de volgende twee manieren:
 ### 1.2: Synchroon request naar deze *README.md*
 Implementeer de methode `getReadme()`:
 * Maak een GET request naar de correcte *url*. Probeer eerst via de browser te achterhalen wat
-die correcte url is. Merk op dat je een request wilt naar de *raw* versie. 
+die correcte url is. Merk op dat je een request wilt naar de *raw* versie, klik hiervoor bij de file in GitHub op de RAW-knop en kopieer de URL die nu in de browser staat. 
 * Retourneer de *body* van de *response*
 
 Test je implementatie op de volgende twee manieren:
