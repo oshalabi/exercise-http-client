@@ -2,11 +2,10 @@
 # Introductie
 *Deel van de DEA Course aan de Hogeschool Arnhem/Nijmegen.*
 
-Doel van deze oefening is ervaring opdoen met de client-kant van HTTP-verkeer. Concreet gaan we in op de HTTP-Client uit de Java JDK en asynchroon programmeren.
+Doel van deze oefening is ervaring opdoen met de client-kant van HTTP-verkeer. Concreet gaan we in op de *HTTP client* uit de Java JDK en *asynchroon programmeren*.
 
 # Oefening
-Voor deze oefening krijg je een gedeeltelijke applicatie. Namelijk een zeer elementaire
-*Console Browser*. De de `main` methode uit de klasse `DeaConsoleBrowser` start een console-applicatie op die HTTP requests uit kan voeren en de body van de HTTP response in de console afdrukt. Er is een keuzemenu van uit te voeren requests, waarbij je in de oefening mogelijk moet maken om met behulp van de Http-Client API deze requests ook daadwerkelijk uit te voeren. 
+Voor deze oefening krijg je een gedeeltelijke applicatie. Namelijk een zeer elementaire *Console Browser*. De `main` methode uit de klasse `DeaConsoleBrowser` start een console-applicatie op die HTTP requests uit kan voeren en de body van de HTTP response in de console afdrukt. De applicatie geeft de gebruiker een keuzemenu van uit te voeren requests, waarbij je het zelf in deze oefening mogelijk moet maken om met behulp van de HTTP-client-API die requests ook daadwerkelijk uit te voeren. 
 
 ## 1: De GitHubService
 De `GitHubService` is verantwoordelijk voor alle requests naar *https://github.com*. De requests zijn synchroon en het betreft een tweetal GET-requests.
@@ -22,8 +21,7 @@ Test je implementatie op de volgende twee manieren:
 
 ### 1.2: Synchroon request naar deze *README.md*
 Implementeer de methode `getReadme()`:
-* Maak een GET request naar de correcte *url*. Probeer eerst via de browser te achterhalen wat
-die correcte url is. Merk op dat je een request wilt naar de *raw* versie, klik hiervoor bij de file in GitHub op de RAW-knop en kopieer de URL die nu in de browser staat. 
+* Maak een GET request naar de correcte *url*. Probeer eerst via de browser te achterhalen wat die correcte url is. Merk op dat je een request wilt naar de *raw* versie, klik hiervoor bij de file in GitHub op de RAW-knop en kopieer de URL die nu in de browser staat.
 * Retourneer de *body* van de *response*
 
 Test je implementatie op de volgende twee manieren:
@@ -33,9 +31,9 @@ Test je implementatie op de volgende twee manieren:
 ## 2: De JsonPlaceHolderService
 De `JsonPlaceHolderService` is verantwoordelijk voor alle requests naar *https://jsonplaceholder.typicode.com/*. 
 
-Met deze url kun je je HTTP client testen, en deze ondersteunt verschillende Http-methodes. Als response stuurt deze site je een [JSON](https://www.json.org/) bestand. JSON is een vaakgebruikt formaat wanneer webservices via HTTP data uitwisselen (JSON vervangt dan dus HTML, waarvoor Tim Berners Lee HTTP initieel maakte, maar wat geschikt is voor mensen dan voor systemen/applicaties onderling).
+Met deze url kun je je HTTP client testen en deze ondersteunt verschillende HTTP methodes. Als response stuurt deze site je een [JSON](https://www.json.org/) bestand. JSON is een vaakgebruikt formaat wanneer webservices via HTTP data uitwisselen. JSON vervangt dan dus HTML, waarvoor Tim Berners Lee HTTP initieel maakte, maar wat zich natuurlijk richt op mensen in plaats van op communicatie van systemen/applicaties onderling (zoals front-end en back-end; e.g. client en server).
 
-[JSON](https://www.json.org/) -bestanden bevatten een structuur die je kunt omzetten naar Java-Objecten. Daarmee is het dus mogelijk om via [JSON](https://www.json.org/) en Http, Java-Objecten uit te wisselen.  De bestaande applicatie bevat al een klasse die dit voor je kan doen, een zogenaamde *DataMapper*, genaamd `TodoMapper`.
+[JSON](https://www.json.org/)-bestanden hebben een structuur die je kunt omzetten naar Java-Objecten. Als je JSON dan uitwisselt via HTTP, kun je zo ook Java-objecten uit wisselen.  De bestaande applicatie bevat al een klasse die dit voor je doet, een zogenaamde *DataMapper*, genaamd `TodoMapper`.
 
 ### 2.1: Het asynchroon ophalen van [JSON](https://www.json.org/)
 Implementeer de methode `getTodos()`:
@@ -69,7 +67,7 @@ Implementeer de methode `createNewTodoItemOnServer()`. Deze methode verstuurt ee
 Merk hierbij op dat de body van een request een `String` moet zijn. Je zult het Java-Object dan ook eerst moet serializeren naar [JSON](https://www.json.org/). Gebruik hiervoor weer de `TodoMapper`. Merk overigens op dat dit request normaal
 gesproken de nieuwe `TodoItem` ook op de server toevoegt en je deze dus ook weer via een GET kunt ophalen.
 De server is echter een gratis test-server en wekt dus enkel in zijn response de indruk ook het nieuwe `TodoItem` te hebben toegevoegd.
-* Zet ook de Content-Type in de Request-header op de juiste waarde. Voor meer informatie, bekijk de [RFC](https://tools.ietf.org/html/rfc7230) van Http.
+* Zet ook de Content-Type in de Request-header op de juiste waarde. Voor meer informatie, bekijk de [RFC van HTTP](https://tools.ietf.org/html/rfc7230).
 * Roep nu vanuit de `.thenAccept` van de POST de callback aan die parameter was voor methode `createNewTodoItemOnServer()`.
 
 Test je implementatie op de volgende manier:
