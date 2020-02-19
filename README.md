@@ -1,8 +1,8 @@
 <!--- 37 --->
 # Introductie
-Deze oefening is deel van de DEA Course aan de Hogeschool Arnhem/Nijmegen. 
+*Deel van de DEA Course aan de Hogeschool Arnhem/Nijmegen.*
 
-Onderwerp is ervaring opdoen met de client-kant van HTTP-verkeer. Concreet gaan we in op de HTTP-Client uit de Java JDK en asynchroon programmeren.
+Doel van deze oefening is ervaring opdoen met de client-kant van HTTP-verkeer. Concreet gaan we in op de HTTP-Client uit de Java JDK en asynchroon programmeren.
 
 # Oefening
 Voor deze oefening krijg je een gedeeltelijke applicatie. Namelijk een zeer elementaire
