@@ -13,14 +13,17 @@ import java.util.function.Consumer;
 public class JsonPlaceholderService {
 
     private TodoMapper todoMapper;
-
+    private HttpClient httpClient;
+    private String jasonUrlTodos;
     public JsonPlaceholderService() {
         todoMapper = new TodoMapper();
+        httpClient = HttpClient.newHttpClient();
+        jasonUrlTodos = "https://jsonplaceholder.typicode.com/todos";
     }
 
     public void getTodos() {
 
-        var requset = HttpRequest.newBuilder().uri(URI.create("https://jsonplaceholder.typicode.com/todos")).build();
+        var requset = HttpRequest.newBuilder().uri(URI.create(jasonUrlTodos)).build();
 
             httpClient.sendAsync(requset, HttpResponse.BodyHandlers.ofString()).thenAccept(response -> {
                         System.out.println(response.body());
@@ -29,17 +32,17 @@ public class JsonPlaceholderService {
     }
 
     public void getTodosWithCallback(Consumer<String> callback) {
-        var httpCleint = HttpClient.newHttpClient();
-        var requset = HttpRequest.newBuilder().uri(URI.create("https://jsonplaceholder.typicode.com/todos")).build();
-        httpCleint.sendAsync(requset, HttpResponse.BodyHandlers.ofString()).thenAccept(response -> {
+
+        var requset = HttpRequest.newBuilder().uri(URI.create(jasonUrlTodos)).build();
+        httpClient.sendAsync(requset, HttpResponse.BodyHandlers.ofString()).thenAccept(response -> {
             callback.accept(response.body());
 
         });
     }
 
     public void createNewTodoItemOnServer(Consumer<String> callback) {
-        var httpClient = HttpClient.newHttpClient();
-        var requset = HttpRequest.newBuilder().uri(URI.create("https://jsonplaceholder.typicode.com/todos"))
+
+        var requset = HttpRequest.newBuilder().uri(URI.create(jasonUrlTodos))
                 .POST(HttpRequest.BodyPublishers.ofString("Massage to POST"))
                 .build();
         httpClient.sendAsync(requset,HttpResponse.BodyHandlers.ofString()).thenAccept(response ->{
