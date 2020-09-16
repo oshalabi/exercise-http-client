@@ -1,5 +1,11 @@
 package nl.han.ica.oose.dea.services.dtos;
 
+import java.io.IOException;
+import java.net.URI;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+
 public class TodoDto {
     private int userId;
     private int id;
@@ -37,4 +43,5 @@ public class TodoDto {
     public void setCompleted(boolean completed) {
         this.completed = completed;
     }
+
 }

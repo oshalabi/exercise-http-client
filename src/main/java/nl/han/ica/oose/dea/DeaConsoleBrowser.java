@@ -4,6 +4,8 @@ import nl.han.ica.oose.dea.services.ConsolePrinterService;
 import nl.han.ica.oose.dea.services.GitHubService;
 import nl.han.ica.oose.dea.services.JsonPlaceholderService;
 
+import java.io.IOException;
+import java.net.http.HttpResponse;
 import java.util.Scanner;
 
 
@@ -12,6 +14,7 @@ public class DeaConsoleBrowser {
     private GitHubService gitHubService;
     private JsonPlaceholderService jsonPlaceholderService;
     private ConsolePrinterService consolePrinterService;
+
 
     public static void main(String[] args) {
         var consoleBrowser = new DeaConsoleBrowser();

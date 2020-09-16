@@ -1,5 +1,6 @@
 package nl.han.ica.oose.dea.services;
 
+import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
@@ -9,26 +10,35 @@ public class GitHubService {
 
     public String getIndexHtml(){
 
-        HttpClient client = HttpClient.newHttpClient();
-        HttpRequest request = HttpRequest.newBuilder()
-                .uri(URI.create("hrrp://github.com/"))
-                .build();
-        client.sendAsync(request, HttpResponse.BodyHandlers.ofString())
-                .thenApply(HttpResponse::body)
-                .thenAccept(System.out::println)
-                .join();
+            var httpClient = HttpClient.newHttpClient();
+            var requset = HttpRequest.newBuilder().uri(URI.create("https://github.com/")).build();
 
-        client.sendAsync(request, HttpResponse.BodyHandlers.ofString())
-                .thenApply(response -> {System.out.println(response.statusCode());
-                return response; })
-                .thenApply(HttpResponse::body)
-                .thenAccept(System.out::println);
-        return "re";
+        HttpResponse<String> response = null;
+        try {
+            response = httpClient.send(requset, HttpResponse.BodyHandlers.ofString());
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 
+        return response.body();
 
     }
 
     public String getReadme() {
-        return "";
+
+        var httplClient = HttpClient.newHttpClient();
+        var requset = HttpRequest.newBuilder().uri(URI.create("https://raw.githubusercontent.com/HANICA-DEA/exercise-http-client/master/README.md")).build();
+
+        HttpResponse<String> response = null;
+        try{
+            response = httplClient.send(requset, HttpResponse.BodyHandlers.ofString());
+        }catch (IOException e){
+            e.printStackTrace();
+        }catch (InterruptedException e){
+            e.printStackTrace();
+        }
+        return response.body();
     }
 }
